@@ -1,0 +1,143 @@
+
+<div class="card col-8 ">
+  <div class="card-head">{{Action}}</div>
+  <div class="card-body ">
+
+    <form [formGroup]="doctorAddForm" >
+    <div class="row ">
+        <mat-form-field class="col-12 col-md-6">
+            <input formControlName="fname" type="text" matInput placeholder="First Name" required>
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error *ngIf="doctorFName?.errors?.['required']"> First Name is required </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 col-md-6">
+            <input formControlName="lname" type="text" matInput placeholder="Last Name" required>
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error *ngIf="doctorLName?.errors?.['required']"> Last Name is required </mat-error>
+        </mat-form-field>         
+    </div>
+
+    <div class="row ">
+        <mat-form-field class="col-12 col-md-6">
+            <input formControlName="email" type="email" matInput placeholder="Email" required>
+                <mat-error *ngIf="doctorEmail?.errors?.['required']">Email is required</mat-error>
+                <mat-error *ngIf="doctorEmail?.errors?.['pattern']">Email is Invalid</mat-error>
+            <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 col-md-6">
+            <input matInput formControlName="phone" placeholder="Phone"  id="phone" type="tel"  />
+            <mat-error *ngIf="doctorPhone?.errors?.['pattern']">Phone Not Valid</mat-error>
+            <mat-error *ngIf="doctorPhone?.errors?.['required']"> Phone is required </mat-error>
+
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+    </div>
+    <div class="row ">
+        <mat-form-field class="col-12 col-md-6">
+            <input matInput formControlName="age" min=23 max="100" placeholder="Age" type="number" id="age"  />
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error *ngIf="doctorAge?.errors?.['min']"> Invalid Value Min Age is 23 </mat-error>
+            <mat-error *ngIf="doctorAge?.errors?.['max']"> Invalid Value Max Age is 100 </mat-error>
+            
+          </mat-form-field>
+    
+          <mat-form-field class="col-12 col-md-6" appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+          
+    </div>
+    <div class="row ">
+        
+
+          <mat-form-field class="col-12 col-md-6"  >
+            <input matInput formControlName="yearsOfExperience" min=1  max=25 placeholder="Experience" type="number" id="YOE"  />
+            <mat-icon matSuffix>number</mat-icon>
+            <mat-error *ngIf="doctorExpreince?.errors?.['required']"> Experience is required </mat-error>
+            <mat-error *ngIf="doctorExpreince?.errors?.['min']"> Invalid  Min Value is 1 </mat-error>
+            <mat-error *ngIf="doctorExpreince?.errors?.['max']"> Invalid  Max Value is 25 </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 col-md-6"  >
+            <mat-label>Speciality</mat-label>
+            <mat-select formControlName="speciality">
+              <mat-option value="cardiology">Cardiology</mat-option>
+              <mat-option value="dentistry">Dentistry</mat-option>
+              <mat-option value="ear">Ear</mat-option>
+              <mat-option value="nose">Nose</mat-option>
+              <mat-option value="throat">Throat</mat-option>
+              <mat-option value="ENT">ENT</mat-option>
+              <mat-option value="nutrition">Nutrition</mat-option>
+              <mat-option value="dermatology">Dermatology</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="row">
+
+        <mat-form-field class="col-12 col-md-6"  >
+            <mat-label>Clinic</mat-label>
+            <mat-select formControlName="clinic">
+              <mat-option *ngFor="let item of clinins" [value]="item._id" selected>{{item.name}}</mat-option>
+        </mat-select>
+
+        </mat-form-field>
+        <mat-form-field class="col-12 col-md-6"  >
+            <input matInput formControlName="price" min=100 max="1000"  placeholder="Price" type="number" id="price"  />
+            <mat-error *ngIf="doctorPrice?.errors?.['required']"> Price is required </mat-error>
+            <mat-error *ngIf="doctorPrice?.errors?.['min']"> Invalid Value Min Price is 100 </mat-error>
+            <mat-error *ngIf="doctorPrice?.errors?.['max']"> Invalid Value Max Price is 1000 </mat-error>
+
+
+            <mat-icon matSuffix>number</mat-icon>
+          </mat-form-field>
+
+
+    </div>
+    <div formGroupName="address" class="row ">
+        <mat-form-field class="col-12 col-md-4">
+            <input matInput formControlName="city" placeholder="City"  id="city"  />
+            <mat-error *ngIf="doctorCity?.errors?.['required']">City is Required</mat-error>
+            <mat-icon matSuffix>location_on</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="ms-1" class="col-12 col-md-4">
+            <input matInput formControlName="street" placeholder="Street"  id="street"  />
+            <mat-icon matSuffix>location_on</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="ms-1" class="col-12 col-md-4">
+            <input matInput formControlName="building" min="1" placeholder="Building" type="number" id="building"  />
+            <mat-icon matSuffix>home</mat-icon>
+        </mat-form-field>
+    </div>
+    
+          <div class="row ">
+            <mat-form-field class="col-12 col-md-6">
+                <input formControlName="password" matInput placeholder="Password"  type="password"  required minlength="6">
+                  <mat-error  *ngIf="doctorPassword?.errors?.['required']">Password is Required</mat-error>
+                  <mat-error  *ngIf="doctorPassword?.errors?.['minlength']">Password must be of length 6</mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+          
+              </mat-form-field>
+          
+            <mat-form-field class="col-12 col-md-6">
+                <input formControlName="confirmPassword" matInput placeholder="Confirm Password" type="password" required minlength="6">  
+                <mat-error *ngIf="doctorAddForm.errors?.['misMatch']">Passwords do not match</mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+          </div>
+        
+         
+        <button mat-raised-button color="primary" class="login-button" *ngIf="!isUpdateActive" [disabled]="!doctorAddForm.valid" (click)="add()"> Sign Up</button>
+        <button mat-raised-button color="primary" class="login-button" *ngIf="isUpdateActive" [disabled]="!doctorAddForm.valid" (click)="update()"> Update</button>
+        <button mat-raised-button color="warn" (click)="back()"   class="back"> Back</button>
+
+      </form>
+  </div>
+</div>

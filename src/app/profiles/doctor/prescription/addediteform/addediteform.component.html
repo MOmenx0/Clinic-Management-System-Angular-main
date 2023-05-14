@@ -1,0 +1,37 @@
+
+<form #addPresc="ngForm" class="addForm" (ngSubmit)="addPrescForm(addPresc)">
+     <input type="date" name="date" ngModel [(ngModel)]="data.date" style="padding: 10px;">
+<label class="select" for="slct">
+ <select id="slct" required="required" ngModel name="patientName" [(ngModel)]="data.patientId">
+   <option    disabled="disabled" selected="selected">Select option</option>
+    <option value={{+mypatient._id}} *ngFor="let mypatient of patient" 
+    >{{mypatient.name}}</option>
+ </select>
+ <svg>
+   <use xlink:href="#select-arrow-down"></use>
+ </svg>
+</label>
+<!-- SVG Sprites-->
+<svg class="sprites">
+ <symbol id="select-arrow-down" viewbox="0 0 10 6">
+   <polyline points="1 1 5 5 9 1"></polyline>
+ </symbol>
+</svg>
+<!-- <app-medicensearch></app-medicensearch> -->
+<mat-form-field appearance="fill">
+    <mat-label>Toppings</mat-label>
+    <!-- <mat-select [formControl]="toppings" multiple  > -->
+    <mat-select required multiple  name="medicine"[(ngModel)]="data.medicine" (ngModelChange)="data.medicine" >
+      <!-- <mat-option *ngFor="let topping of toppingList"  [value]="topping">{{topping}}</mat-option> -->
+      <mat-option *ngFor="let medicine of medicineList"  value={{medicine._id}} >{{medicine.drugName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+   
+  <textarea  name="description"[(ngModel)]="data.description" minlength="10" class="py-2  px-3">
+  </textarea>
+   
+
+<button type="submit" class="btn btn-primary btn-lg" [disabled]="addPresc.invalid" >{{btnName}}</button>
+<!-- <button type="submit" class="btn btn-primary btn-lg"  >Register</button> -->
+</form>
+ 

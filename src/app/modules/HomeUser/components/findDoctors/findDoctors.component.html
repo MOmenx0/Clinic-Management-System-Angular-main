@@ -1,0 +1,88 @@
+<div class="doctorsparent bg-primary p-4">
+  <div class="container">
+    <div class="doctorsHeader d-flex">
+      <div class="search-box me-2">
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+        <input
+          type="text"
+          class="input-search"
+          placeholder="Type to Search..."
+          (keyup)="changeSearch($event)"
+        />
+      </div>
+
+      <mat-form-field>
+        <mat-select placeholder="filter by speciality">
+          <mat-option
+            *ngFor="let speciality of allSpeciality"
+            (click)="filterBySpeciality(speciality)"
+            [value]="speciality"
+          >
+            {{ speciality }}
+          </mat-option>
+          <!-- <mat-option value="dentistry">name</mat-option> -->
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row justify-content-center">
+      <div
+        class="col-12 p-0 col-sm-6 col-lg-3 m-3"
+        *ngFor="let doctor of doctors"
+      >
+        <div class="card d-flex">
+          <div class="card-img">
+            <img
+              src="../../../../../assets/doctors/doctor{{ doctor._id }}.jpg"
+            />
+          </div>
+
+          <div>
+            <div class="desc">
+              <h6 class="primary-text">{{ doctor.name }}</h6>
+              <h6 class="secondary-text text-capitalize">
+                {{ doctor.speciality }}
+              </h6>
+              <!-- <mat-icon>home</mat-icon> -->
+              <div class="review">
+                <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                <i class="fa fa-star-half text-warning" aria-hidden="true"></i>
+              </div>
+            </div>
+            <!-- <button class="primary-text viewBtn">Vi/ew Profile</button> -->
+
+            <div class="info">
+              <ul class="infoUl">
+                <!-- <li><i class="fa fa-map-marker" aria-hidden="true"></i>  Address :{{doctor.address.city}} : {{doctor.address.street}} street</li>
+                <li><i class="fa fa-credit-card" aria-hidden="true"></i>
+                    Fees: {{doctor.price}} EGP</li> -->
+
+                <li>
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  {{ doctor.address.city }}:{{ doctor.address.street }} street
+                </li>
+                <li>
+                  <i class="fa fa-credit-card" aria-hidden="true"></i>
+                  {{ doctor.price }} EGP
+                </li>
+                <li>
+                  <i class="fa fa-mobile" aria-hidden="true"></i
+                  >{{ doctor.phone }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="details">
+            <div class="activity m-auto">
+              <button class="primary-text" (click)="book(doctor._id)">Book Appoiment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

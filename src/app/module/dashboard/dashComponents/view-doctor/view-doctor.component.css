@@ -1,0 +1,13 @@
+.list-group-item{
+    font-size: 10pt;
+    text-transform: capitalize;
+
+}
+.Speciality{
+    text-transform: capitalize;
+    font-size: 12pt;
+}
+.modal-title{
+    font-size: 12pt;
+    text-decoration: double;
+}

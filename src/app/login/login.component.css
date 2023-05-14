@@ -1,0 +1,9 @@
+body{
+    height: 100vh;
+    background-image: url('../../assets/bg2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+#main-card{
+    margin-left: 10%;
+}

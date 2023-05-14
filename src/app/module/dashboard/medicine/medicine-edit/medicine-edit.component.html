@@ -1,0 +1,80 @@
+
+<div class="card col-8 mx-auto">
+  <h2 class="my-2 mx-auto" >Edit Medicine</h2>
+  <div class="card-body ">
+
+    <form  [formGroup]="medicineAddForm">
+      <div class="row ">
+        <!-- <mat-form-field class="col-12 col-md-6">
+
+          <label for="id" class="form-label">ID</label>
+          <input type="number" class="form-control" id="id"[(ngModel)] ='  med._id'disabled="true"/>
+        </mat-form-field> -->
+        <mat-form-field class="col-12 col-md-6">
+            <input formControlName="drugName" type="text" matInput placeholder="medicine Name" required>
+            <mat-icon matSuffix> local_pharmacy</mat-icon>
+            <mat-error *ngIf="drugName?.errors?.['required']"> Medicine Name is required </mat-error>
+            <mat-error *ngIf="drugName?.errors?.['maxLength']"> Medicine Name is maxLength 30 </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field class="col-12 col-md-6">
+          <input formControlName="dosage" type="text" matInput placeholder="Dosage" required>
+          <mat-icon matSuffix> local_pharmacy</mat-icon>
+          <mat-error *ngIf="dosage?.errors?.['required']"> Dosage is required </mat-error>
+      </mat-form-field>
+        <mat-form-field class="col-12 ">
+          <input formControlName="description" type="text" matInput placeholder="description" required>
+
+          <mat-icon matSuffix>description</mat-icon>
+          <mat-error *ngIf="description?.errors?.['required']"> description is required </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-12 col-md-6">
+        <input formControlName="price" type="number" matInput placeholder="medicine price" required>
+        <mat-icon matSuffix>number</mat-icon>
+        <mat-error *ngIf="price?.errors?.['required']"> Medicine price is required </mat-error>
+        <mat-error *ngIf="price?.errors?.['minLength']"> Medicine price maxLength is  30 </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-6">
+      <input formControlName="quantity" type="number" matInput placeholder="quantity" required>
+      <mat-icon matSuffix>number</mat-icon>
+      <mat-error *ngIf="quantity?.errors?.['required']"> quantity is required </mat-error>
+      <mat-error *ngIf="quantity?.errors?.['minLength']"> quantity maxLength is  30 </mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="col-12 ">
+      <input formControlName="form" type="text" matInput placeholder="form" required>
+      <mat-icon matSuffix>sentiment_satisfied_alt</mat-icon>
+      <mat-error *ngIf="form?.errors?.['required']"> form is required </mat-error>
+  </mat-form-field> -->
+  <mat-form-field class="col-12 "  appearance="fill">
+    <mat-label>form</mat-label>
+    <mat-select formControlName="form">
+       <mat-option value="cap">cap</mat-option>
+      <mat-option value="susp">susp</mat-option>
+      <mat-option value="jugs">jugs</mat-option>
+      <mat-option value="cream">cream</mat-option>
+      <mat-option value="Eye_Drops">Eye_Drops</mat-option>
+      <mat-option value="tab">tab</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="col-12 col-md-6">
+    <input formControlName="exp_date" type="text" matInput placeholder="expire date " required>
+    <mat-icon matSuffix>date_range</mat-icon>
+    <mat-error *ngIf="exp_date?.errors?.['required']"> Medicine date is required </mat-error>
+
+</mat-form-field>
+
+<mat-form-field class="col-12 col-md-6">
+  <input formControlName="mfd_date" type="text" matInput placeholder="mfd date" >
+  <mat-icon matSuffix>date_range</mat-icon>
+ </mat-form-field>
+
+</div>
+<button mat-raised-button color="primary" (click)="update()"> save change</button>
+<button mat-raised-button color="warn"class='me-2' (click)="back()"   class="back"> cancel</button>
+
+        </form>

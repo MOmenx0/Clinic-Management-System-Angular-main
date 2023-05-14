@@ -1,0 +1,13 @@
+mat-form-field, mat-checkbox {
+    width: 40%;
+    display: inline-block;
+    margin: auto;
+  }
+  /* mat-card-content {
+  } */
+  
+  .register-button {
+    display: block;
+    width: 80%;
+    margin: 0px auto;
+  }

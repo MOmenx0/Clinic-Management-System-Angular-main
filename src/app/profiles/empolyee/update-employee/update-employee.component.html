@@ -1,0 +1,170 @@
+<div class="container">
+  <form [formGroup]="employeeUpdateForm" class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        [errorStateMatcher]="matcher"
+        placeholder="Your Name"
+      />
+      <mat-icon mat-icon-button matSuffix>person</mat-icon>
+      <mat-error *ngIf="name?.errors?.['name'] && !name?.errors?.['required']">
+        Please enter a valid name</mat-error
+      >
+      <mat-error *ngIf="name?.errors?.['required']">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        [errorStateMatcher]="matcher"
+        placeholder="Your Email"
+      />
+      <mat-icon mat-icon-button matSuffix>email</mat-icon>
+      <mat-error
+        *ngIf="email?.errors?.['email'] && !email?.errors?.['required']"
+      >
+        Please enter a valid Email</mat-error
+      >
+      <mat-error *ngIf="email?.errors?.['required']">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        [errorStateMatcher]="matcher"
+        placeholder="Your Password"
+        [type]="hide ? 'password' : 'text'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error
+        *ngIf="password?.errors?.['password'] && !password?.errors?.['required']"
+      >
+        Please enter a valid password</mat-error
+      >
+      <mat-error *ngIf="password?.errors?.['required']">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input
+        type="number"
+        matInput
+        formControlName="phone"
+        [errorStateMatcher]="matcher"
+        placeholder="Your phone"
+      />
+      <mat-icon mat-icon-button matSuffix>phone</mat-icon>
+      <mat-error
+        *ngIf="phone?.errors?.['phone'] && !phone?.errors?.['required']"
+      >
+        Please enter a valid phone</mat-error
+      >
+      <mat-error *ngIf="phone?.errors?.['required']">
+        phone is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="femal">Female </mat-option>
+      </mat-select>
+      <mat-icon mat-icon-button matSuffix>face</mat-icon>
+
+      <mat-error
+        *ngIf="gender?.errors?.['gender'] && !gender?.errors?.['required']"
+      >
+        Please enter a valid Gender</mat-error
+      >
+      <mat-error *ngIf="gender?.errors?.['required']">
+        Gender is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- Address-City -->
+    <div formGroupName="address">
+      <mat-form-field appearance="fill" style="width: 30%">
+        <mat-label>City</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="city"
+          [errorStateMatcher]="matcher"
+          placeholder="Ex. Cairo"
+        />
+        <mat-icon mat-icon-button matSuffix>location_city</mat-icon>
+
+        <mat-error
+          *ngIf="addressCity?.errors?.['pattern'] && !addressCity?.errors?.['required']"
+        >
+          Minimum length of 3 letters ,
+          <strong>English alphabeticals only</strong>
+        </mat-error>
+        <mat-error *ngIf="addressCity?.errors?.['required']">
+          City is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- Address-Street -->
+      <mat-form-field appearance="fill" style="width: 30%" class="ms-2">
+        <mat-label>Street</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="street"
+          [errorStateMatcher]="matcher"
+          placeholder="Ex. ElGomla"
+        />
+        <mat-icon mat-icon-button matSuffix>streetview</mat-icon>
+
+        <mat-error *ngIf="addressStreet?.errors?.['required']">
+          Street is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 30%" class="ms-2">
+        <mat-label>Builing Number</mat-label>
+        <input
+          type="number"
+          matInput
+          formControlName="building"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-icon mat-icon-button matSuffix>apartment</mat-icon>
+
+        <mat-error *ngIf="addressBuiling?.errors?.['required']">
+          Builing is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-4">
+      <button class="btn btn-danger" type="button" (click)="cancel()">
+        Cancel
+      </button>
+      <button
+        class="btn btn-primary ms-3"
+        type="submit"
+        [disabled]="!employeeUpdateForm.valid"
+        (click)="edit()"
+      >
+        Update
+      </button>
+    </div>
+  </form>
+</div>

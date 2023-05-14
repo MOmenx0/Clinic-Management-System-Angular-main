@@ -1,0 +1,54 @@
+
+<div class="modal-body  row">
+
+  <div class="card col-8 mx-auto pb-2">
+    <div class="modal-header mx-auto mt-2  ">
+      <h2 class="modal-title" >Appointment Details</h2>
+
+    </div>
+     <mat-card class="example-card my-2">
+
+         <mat-card-header>
+
+           <mat-card-title><i class="fa  fa-user"></i> Patient Name :   {{patient?.name}}</mat-card-title>
+           <mat-card-subtitle class="mb-4 ">Patient Id: {{appoint?.patientId}}
+            <br>Gender: {{patient?.gender}}
+          </mat-card-subtitle>
+
+         </mat-card-header>
+         <mat-card-content>
+             <ul class="list-group list-group-flush">
+               <li class="list-group-item"><i  class="fa fa-calendar-check " ></i>
+
+                Date:  {{appoint?.date}}</li>
+               <li class="list-group-item"><i  class="fa fa-calendar " ></i> Time:  {{appoint?.time}}</li>
+               <li class="list-group-item"><i class="fa fa-wallet"></i> Price:  {{doc?.price}} $</li>
+               <li class="list-group-item">Type:  {{doc?.speciality}}</li>
+               <div class="row mt-2">
+                 <ul class="list-group list-group-flush col mx-1">
+                  <h4 class="ms-2"><i class="fa  fa-user"></i> Doctor: </h4>
+                  <li class="list-group-item">Name: Dr\ {{doc?.name}}</li>
+                   <li class="list-group-item"><i class="fa fa-phone"></i> Phone: {{doc?.phone}} </li>
+                   <li class="list-group-item"><i class="fa fa-envelope"></i> Email: {{doc?.email}}</li>
+                 </ul>
+
+                 <ul class="list-group list-group-flush col">
+                  <h4><i  class="fal fa-home " ></i>Clinic: </h4><i class="fa-sharp fa-solid fa-house-chimney-medical"></i>
+                   <li class="list-group-item"> Name: {{clinic?.name}} </li>
+                   <li class="list-group-item"> <i class="fa fa-location"></i> Location: {{clinic?.location}} </li>
+                   <li class="list-group-item"><i class="fa fa-envelope"></i> Email: {{clinic?.email}}</li>
+                 </ul>
+               </div>
+
+               </ul>
+
+
+               <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <button mat-raised-button style="background: #727d97;" class='me-2  mt-5' (click)="back()"  > Back</button>
+                         <!-- <a routerLink="/appointments"routerLinkActive="active1" class="btn btn-secondary px-5 me-md-2 mt-5"> back </a> -->
+                       </div>
+              </mat-card-content>
+            </mat-card>
+ </div>
+
+</div>

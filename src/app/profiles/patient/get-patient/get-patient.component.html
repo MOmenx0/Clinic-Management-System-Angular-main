@@ -1,0 +1,226 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+  rel="stylesheet"
+/>
+
+<body>
+  <div class="main-content">
+    <!-- Top navbar -->
+    <nav
+      class="navbar navbar-top navbar-expand-md navbar-dark"
+      id="navbar-main"
+    ></nav>
+    <!-- Header -->
+    <div
+      class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+      style="
+        min-height: 600px;
+        background-image: url('../../../../assets/img/8.jpg');
+        background-size: cover;
+        background-position: center top;
+      "
+    >
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-10 col-md-10">
+            <h1 class="display-2 text-white">Hello</h1>
+            <p class="text-white mt-0 mb-5">
+              This is your profile page. You can see your profile Info,
+              Appoinments and Invoices
+            </p>
+            <!--all buttons -->
+            <a
+              routerLink=""
+              routerLinkActive="router-link-active"
+              class="btn btn-info"
+              >Home</a
+            >
+            <a
+              [routerLink]="['/profile/patient/', 'update', patientObj._id]"
+              routerLinkActive="router-link-active"
+              class="btn btn-info"
+              >Edit profile</a
+            >
+            <a
+              [routerLink]="[
+                '/profile/patient/',
+                'appointment',
+                patientObj._id
+              ]"
+              routerLinkActive="router-link-active"
+              class="btn btn-info"
+              >Appoinments</a
+            >
+            <a
+              [routerLink]="['/profile/patient/', 'invoice', patientObj._id]"
+              routerLinkActive="router-link-active"
+              class="btn btn-info"
+              >Invoices</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img
+                      src="../../../../assets/img/patient.png"
+                      class="rounded-circle"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
+            ></div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div
+                    class="card-profile-stats d-flex justify-content-center mt-md-5"
+                  >
+                    <h3>
+                      {{ patientObj.name }}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="h5">
+                  <i class="ni business_briefcase-24 mr-2"></i> Email:
+                  {{ patientObj.email }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">My account</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+                <h6 class="heading-small text-muted mb-4">
+                  Client Information
+                </h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-username"
+                          >Client Name</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.name }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email"
+                          >Email address</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.email }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name"
+                          >Client Age</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.age }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-last-name"
+                          >Gender</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.gender }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">
+                  Contact information
+                </h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address"
+                          >Phone</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.phone }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-city"
+                          >City</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.address.city }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-country"
+                          >Street</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.address.street }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country"
+                          >Building</label
+                        >
+                        <div class="form-control form-control-alternative">
+                          {{ patientObj.address.building }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

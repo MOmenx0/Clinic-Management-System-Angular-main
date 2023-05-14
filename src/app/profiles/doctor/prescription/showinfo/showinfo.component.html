@@ -1,0 +1,26 @@
+<div class="prescInfo">
+    <ul class="infoUl">
+        <li>
+          <p>Prescription Date: </p>
+          <p class="ms-2"> {{ targetData.date.toString().split("T")[0] }}</p>
+        </li>
+      <li>
+       <p>Doctor Name:</p>
+       <p class="ms-2"> {{ targetData.doctorId.name }}</p>
+      </li>
+      <li>
+        <p>Patient Name: </p>
+        <p class="ms-2"> {{ targetData.patientId.name }}</p>
+      </li>
+      <li>
+        <p>Medicine: </p>
+        <p class="ms-2"> {{ targetData.medicine }}</p>
+      </li>
+      <li>
+        <p>Description: </p>
+        <p class="ms-2" style="word-wrap: break-word;"> {{ targetData.description }}</p>
+      </li>
+       
+    </ul>
+  </div>
+ 

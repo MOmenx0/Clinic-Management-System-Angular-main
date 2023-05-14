@@ -1,0 +1,42 @@
+.body{
+    background-color: rgb(226 230 234);
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    
+}
+.info{
+    background-color: rgb(251, 251, 252);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 12px;
+}
+/* #sidInfo{
+    height: 50rem;
+   
+} */
+img{
+    width: 100px;
+    border-radius: 30%;
+    height: 150px;
+}
+#bookingInfo{
+    text-align: center;
+    text-transform: capitalize;
+}
+.centerInfo{
+    text-align: center;
+    text-transform: capitalize; 
+}
+.cNVbvo {
+    margin-top: 5px;
+    font-weight: 700;
+}
+.lable{
+    margin: 5px;
+    font-weight: 900;
+}
+.btnC{
+    background-color: #3b71ca !important;
+}
+h3{
+    margin: 0px;
+}

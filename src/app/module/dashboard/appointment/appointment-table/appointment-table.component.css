@@ -1,0 +1,17 @@
+h1{
+  text-align: center;
+  text-shadow: 2px 2px#010184 ;
+  text-transform: uppercase;
+  /* color: #1232e6; */
+  color: #f2f2f4;
+  font-size: x-large;
+}
+*{
+  text-shadow: none;
+  text-align: left;
+
+}
+.Add{
+  float: right;
+
+}

@@ -1,0 +1,117 @@
+
+<div class="card col-8 ">
+    <div class="card-head">{{Action}}</div>
+    <div class="card-body ">
+  
+      <form [formGroup]="empAddForm" >
+      <div class="row ">
+          <mat-form-field class="col-12 col-md-6">
+              <input formControlName="fname" type="text" matInput placeholder="First Name" required>
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngIf="empFName?.errors?.['required']"> First Name is required </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="col-12 col-md-6">
+              <input formControlName="lname" type="text" matInput placeholder="Last Name" required>
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngIf="empLName?.errors?.['required']"> Last Name is required </mat-error>
+          </mat-form-field>         
+      </div>
+  
+      <div class="row ">
+          <mat-form-field class="col-12 col-md-6">
+              <input formControlName="email" type="email" matInput placeholder="Email" required>
+                  <mat-error *ngIf="empEmail?.errors?.['required']">Email is required</mat-error>
+                  <mat-error *ngIf="empEmail?.errors?.['pattern']">Email is Invalid</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+  
+          <mat-form-field class="col-12 col-md-6">
+              <input matInput formControlName="phone" placeholder="Phone"  id="phone" type="tel"  />
+              <mat-error *ngIf="empPhone?.errors?.['pattern']">Phone Not Valid</mat-error>
+              <mat-error *ngIf="empPhone?.errors?.['required']"> Phone is required </mat-error>
+  
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+      </div>
+      <div class="row ">
+          <mat-form-field class="col-12 col-md-6">
+              <input matInput formControlName="age" min=23 max="100" placeholder="Age" type="number" id="age"  />
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngIf="empAge?.errors?.['min']"> Invalid Value Min Age is 23 </mat-error>
+              <mat-error *ngIf="empAge?.errors?.['max']"> Invalid Value Max Age is 100 </mat-error>
+              
+            </mat-form-field>
+      
+            <mat-form-field class="col-12 col-md-6" appearance="fill">
+              <mat-label>Gender</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+              </mat-select>
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            
+      </div>
+      
+      <div class="row">
+  
+          <mat-form-field class="col-12 col-md-6"  >
+              <mat-label>Clinic</mat-label>
+              <mat-select formControlName="clinic">
+                <mat-option *ngFor="let item of clinins" [value]="item._id" selected>{{item.name}}</mat-option>
+                </mat-select>
+  
+          </mat-form-field>
+
+          <mat-form-field class="col-12 col-md-6">
+            <input matInput formControlName="salary" min=1000 max="25000" placeholder="Salary" type="number" id="salary"  />
+            
+            <mat-error *ngIf="empAge?.errors?.['min']"> Invalid Value Min salary is 1000 </mat-error>
+            <mat-error *ngIf="empAge?.errors?.['max']"> Invalid Value Max salary is 25000 </mat-error>
+            
+          </mat-form-field>
+          
+  
+  
+      </div>
+      <div formGroupName="address" class="row ">
+          <mat-form-field class="col-12 col-md-4">
+              <input matInput formControlName="city" placeholder="City"  id="city"  />
+              <mat-error *ngIf="empCity?.errors?.['required']">City is Required</mat-error>
+              <mat-icon matSuffix>location_on</mat-icon>
+          </mat-form-field>
+  
+          <mat-form-field class="ms-1" class="col-12 col-md-4">
+              <input matInput formControlName="street" placeholder="Street"  id="street"  />
+              <mat-icon matSuffix>location_on</mat-icon>
+          </mat-form-field>
+  
+          <mat-form-field class="ms-1" class="col-12 col-md-4">
+              <input matInput formControlName="building" min="1" placeholder="Building" type="number" id="building"  />
+              <mat-icon matSuffix>home</mat-icon>
+          </mat-form-field>
+      </div>
+      
+            <div class="row ">
+              <mat-form-field class="col-12 col-md-6">
+                  <input formControlName="password" matInput placeholder="Password"  type="password"  required minlength="6">
+                    <mat-error  *ngIf="empPassword?.errors?.['required']">Password is Required</mat-error>
+                    <mat-error  *ngIf="empPassword?.errors?.['minlength']">Password must be of length 6</mat-error>
+                  <mat-icon matSuffix>lock</mat-icon>
+            
+                </mat-form-field>
+            
+              <mat-form-field class="col-12 col-md-6">
+                  <input formControlName="confirmPassword" matInput placeholder="Confirm Password" type="password" required minlength="6">  
+                  <mat-error *ngIf="empAddForm.errors?.['misMatch']">Passwords do not match</mat-error>
+                  <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+            </div>
+          <button mat-raised-button color="primary" class="login-button" *ngIf="!isUpdateActive" [disabled]="!empAddForm.valid" (click)="add()"> Sign Up</button>
+        <button mat-raised-button color="primary" class="login-button" *ngIf="isUpdateActive" [disabled]="!empAddForm.valid" (click)="update()"> Update</button>
+        
+          <button mat-raised-button color="warn"    class="back" (click)="back()"> Back</button>        </form>
+    </div>
+  </div>
+  

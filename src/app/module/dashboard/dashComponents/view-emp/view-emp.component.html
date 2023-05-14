@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h5 class="modal-title" >Employee Details</h5>
+    <button
+   type="button"
+   class="btn-close"
+   aria-label="Close"
+   (click)="modalRef.close()"
+ ></button>
+ </div> 
+ <div class="modal-body">
+   
+   <div>
+
+       <mat-card class="example-card">
+
+           <mat-card-header>
+               
+             <mat-card-title>Mr.{{Emp?.name}}</mat-card-title>
+             <mat-card-subtitle class="capitalize">Clinic: {{Emp?.clinicId?.name}}</mat-card-subtitle>
+           </mat-card-header>
+           <mat-card-content>
+               <ul class="list-group list-group-flush">
+                   <li class="list-group-item capitalize">Email: {{Emp?.email}} </li>
+                   <li class="list-group-item capitalize">Phone: {{Emp?.phone}} </li>
+                   <li class="list-group-item capitalize">Gender: {{Emp?.gender}} </li>
+                   <li class="list-group-item capitalize">Status: {{Emp?.status}}</li>
+                   <li class="list-group-item capitalize">
+                       <details>
+                           <summary>Address</summary>
+                           <li class="list-group-item capitalize">City: {{Emp?.address.city}}</li>
+                           <li class="list-group-item capitalize">Street: {{Emp?.address.street}}</li>
+                           <li class="list-group-item capitalize">building Number: {{Emp?.address.building }}</li>
+                         </details></li>
+                 </ul>
+             
+           </mat-card-content>
+         </mat-card>
+   </div>
+ </div>
+ <div class="modal-footer">
+   <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+     Close
+   </button>
+ </div>

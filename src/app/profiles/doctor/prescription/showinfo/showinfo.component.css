@@ -1,0 +1,33 @@
+.prescInfo {
+    width: 500px;
+    min-height: 200px;
+    padding: 20px 30px;
+}
+
+@media (max-width:500px) {
+    .prescInfo {
+        width: 320px;
+        min-height: 200px;
+    padding: 15px 20px;
+
+    }
+      
+    
+}
+.prescInfo ul{
+    list-style: none;
+    padding: 5px;
+}
+
+.prescInfo ul li {
+    display: flex;
+}
+
+.prescInfo ul li p:first-child {
+    color: var(--primary);
+    font-weight: bold;
+}
+.prescInfo ul li p:last-child {
+    color: #9a9a9a;
+     
+}

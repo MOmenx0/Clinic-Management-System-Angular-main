@@ -1,0 +1,75 @@
+ 
+
+<div class="container mt-5">
+  <mat-tab-group>
+    <mat-tab label="Prescription">  
+      <div class="container tablePrescription">
+
+        <table class="content-table">
+          <thead>
+            <tr>
+                <th scope="col">DATE</th>
+                <th scope="col">Doctor Name</th>
+                <th scope="col">patient Name </th>
+                <th scope="col">Medicine </th>
+                <th scope="col">show </th>
+
+                <!-- <th scope="col"> <img class="animatedIconAdd"  (click)="openAddAndEdite()"  src="../../../../../../assets/animatedIconPrescription/49-plus-circle-flat.gif"/>        </th> -->
+                <!-- <th scope="col"> <img class="animatedIconAdd" data-bs-toggle="modal" data-bs-target="#staticBackdropAdd"   src="../../../../../../assets/animatedIconPrescription/49-plus-circle-flat.gif"/>        </th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of prescription">
+              <td >{{item?.date}}</td>
+              <td >{{item?.doctorId?.name}}</td>
+              <td >{{item?.['patientId']['name']}}</td>
+              <td >{{item.medicine}}</td>
+              <td> <img class="animatedIcon"(click)="showPrescInfo(item)"  src="../../../../../../assets/animatedIconPrescription/69-eye-flat.gif"/> </td>
+              
+            </tr>
+          </tbody>
+        </table>
+        </div>  
+    </mat-tab>
+    <mat-tab label="Add Prescription"> 
+      <app-addediteform class="addFormAddTab"></app-addediteform>
+    </mat-tab>
+    <mat-tab label="My Prescription"> 
+      
+      <div class="container tablePrescription">
+
+        <table class="content-table">
+          <thead>
+            <tr>
+                <th scope="col">DATE</th>
+                <th scope="col">Doctor Name</th>
+                <th scope="col">patient Name </th>
+                <th scope="col">Medicine </th>
+                <th scope="col"> actions</th>
+                <!-- <th scope="col"> <img class="animatedIconAdd"  (click)="showPrescInfo()"  src="../../../../../../assets/animatedIconPrescription/49-plus-circle-flat.gif"/>        </th> -->
+                <!-- <th scope="col"> <img class="animatedIconAdd" data-bs-toggle="modal" data-bs-target="#staticBackdropAdd"   src="../../../../../../assets/animatedIconPrescription/49-plus-circle-flat.gif"/>        </th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of prescription">
+              <td >{{item?.date}}</td>
+              <td >{{item?.doctorId?.name}}</td>
+              <td >{{item?.['patientId']['name']}}</td>
+              <td >{{item.medicine}}</td>
+              <td style="max-width: 30px;">
+                <img class="animatedIcon" data-bs-toggle="modal"(click)="deletePresc(item._id)" data-bs-target="#staticBackdropShow"    src="../../../../../../assets/animatedIconPrescription/185-trash-bin-flat.gif"/>
+                <img class="animatedIcon"   (click)="openEditForm(item) "src="../../../../../../assets/animatedIconPrescription/35-edit-flat.gif"/>
+                <!-- <img class="animatedIcon" data-bs-toggle="modal"  (click)="showPrescInfo(item._id)" data-bs-target="#staticBackdropView"  src="../../../../../../assets/animatedIconPrescription/69-eye-flat.gif"/> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
+ 
+ 
+ 

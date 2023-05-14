@@ -1,0 +1,108 @@
+.tablePrescription .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    /* min-width: 400px; */
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.tablePrescription .content-table thead tr {
+    background-color:var(--primary);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.tablePrescription .content-table th,
+.tablePrescription .content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tablePrescription .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tablePrescription .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary);
+}
+
+.tablePrescription .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: var(--primary);
+}
+.tablePrescription .animatedIconAdd{
+    width: 45px !important;
+    height: 45px !important;
+}
+.tablePrescription .animatedIcon{
+width: 30px !important;
+height: 30px !important;
+cursor: pointer;
+
+}
+
+/* .modalAdd .select {
+    position: relative;
+    min-width: 200px;
+  }
+  .modalAdd .select svg {
+    position: absolute;
+    right: 12px;
+    top: calc(50% - 3px);
+    width: 10px;
+    height: 6px;
+    stroke-width: 2px;
+    stroke: #9098a9;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+  .modalAdd .select select {
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+    width: 100%;
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+  }
+  .modalAdd .select select:required:invalid {
+    color: #5a667f;
+  }
+  .modalAdd .select select option {
+    color: #223254;
+  }
+  .modalAdd .select select option[value=""][disabled] {
+    display: none;
+  }
+  .modalAdd .select select:focus {
+    outline: none;
+    border-color: #07f;
+    box-shadow: 0 0 0 2px rgba(0,119,255,0.2);
+  }
+  .modalAdd .select select:hover + svg {
+    stroke: #07f;
+  }
+  .sprites {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    user-select: none;
+  } */
+  
+ 
+
+  

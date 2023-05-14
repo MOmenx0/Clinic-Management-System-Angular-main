@@ -1,0 +1,72 @@
+    <mat-card-content>
+      <form [formGroup]="patientRegisterForm">
+
+        <mat-form-field style="width: 91.5%;">
+          <input formControlName="name" type="text" matInput placeholder="User Name" required>
+          <mat-icon matSuffix>perm_identity</mat-icon>
+          <mat-error *ngIf="patientName?.errors?.['required']"> Username is required </mat-error>
+        </mat-form-field>
+
+        <mat-form-field style="width: 91.5%;">
+          <input formControlName="email" type="email" matInput placeholder="Email" required>
+            <mat-error *ngIf="patientEmail?.errors?.['required']">Email is required</mat-error>
+            <mat-error *ngIf="patientEmail?.errors?.['pattern']">Email is Invalid</mat-error>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field style="width: 30%;">
+            <input matInput formControlName="age" min=1 max="100" placeholder="Age" type="number" id="age" />
+            <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
+
+          <mat-form-field class="ms-2" style="width: 60%;">
+            <input matInput formControlName="phone" placeholder="Phone" type="text" id="phone" />
+            <mat-error *ngIf="patientPhone?.errors?.['pattern']">Phone Not Valid</mat-error>
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field style="width:91.5%;" appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div formGroupName="address">
+              <mat-form-field style="width: 30%;">
+                <input matInput formControlName="city" placeholder="City" type="text" id="city"   />
+                <mat-error *ngIf="patientCity?.errors?.['required']">City is Required</mat-error>
+                <mat-icon matSuffix>location_on</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field class="ms-1" style="width: 30%;">
+                <input matInput formControlName="street" placeholder="Street" type="text" id="street"   />
+                <mat-icon matSuffix>location_on</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field class="ms-1" style="width: 30%;">
+                <input matInput formControlName="building" min="1" placeholder="Building" type="number" id="building"   />
+                <mat-icon matSuffix>home</mat-icon>
+              </mat-form-field>
+          </div>
+
+
+        <mat-form-field style="width: 91.5%;">
+          <input formControlName="password" matInput placeholder="Password"  type="password"  required minlength="6">
+            <mat-error  *ngIf="patientPassword?.errors?.['required']">Password is Required</mat-error>
+            <mat-error  *ngIf="patientPassword?.errors?.['minlength']">Password must be of length 6</mat-error>
+          <mat-icon matSuffix>lock</mat-icon>
+
+        </mat-form-field>
+
+        <mat-form-field style="width: 91.5%;">
+            <input formControlName="confirmPassword" matInput placeholder="Confirm Password" type="password" required minlength="6">  
+            <mat-error *ngIf="patientRegisterForm.errors?.['misMatch']">Passwords do not match</mat-error>
+            <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+        <!-- [disabled]="!userRegisterForm.valid" -->
+        <button mat-raised-button color="primary" class="register-button" [disabled]="!patientRegisterForm.valid" (click)="patientRegister()"> Sign Up</button>
+
+      </form>
+    </mat-card-content>

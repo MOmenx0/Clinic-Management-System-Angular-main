@@ -1,0 +1,45 @@
+<div class="modal-header ">
+     <h5 class="modal-title" >Doctor Details</h5>
+     <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+  </div> 
+  <div class="modal-body">
+    
+    <div>
+
+        <mat-card class="example-card">
+
+            <mat-card-header>
+                
+              <mat-card-title>Dr.{{doctor?.name}}</mat-card-title>
+              <mat-card-subtitle class="Speciality">Speciality: {{doctor?.speciality}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Email: {{doctor?.email}} </li>
+                    <li class="list-group-item">Phone: {{doctor?.phone}} </li>
+                    <li class="list-group-item">Gender: {{doctor?.gender}} </li>
+                    <li class="list-group-item">Experience: {{doctor?.yearsOfExperience}} Year</li>
+                    <li class="list-group-item">Price: {{doctor?.price}}</li>
+                    <li class="list-group-item">
+                        <details>
+                            <summary>Address</summary>
+                            <li class="list-group-item">City: {{doctor?.address.city}}</li>
+                            <li class="list-group-item">Street: {{doctor?.address.street}}</li>
+                            <li class="list-group-item">building Number: {{doctor?.address.building }}</li>
+                          </details></li>
+                  </ul>
+              
+            </mat-card-content>
+          </mat-card>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+      Close
+    </button>
+  </div>
